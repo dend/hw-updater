@@ -14,3 +14,13 @@ Make sure that you have [Python 3](https://www.python.org/downloads/) installed.
 4. Run the project: `cd src && python -m hwu`
 
 A local XML feed will be generated in the `src` directory.
+
+## FAQ
+
+### Why does this project need to exist?
+
+Channel 9 doesn't produce a clean audio-only feed, which breaks Spotify ingress for the podcast. The application cleans up the updated feed, and commits it [to a forked one](https://github.com/dendeli-work/feeds), that only has the required content.
+
+### Is this a long-term solution?
+
+No.
