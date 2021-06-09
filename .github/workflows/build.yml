@@ -72,4 +72,4 @@ jobs:
         git config --global user.email '1389609+dend@users.noreply.github.com'
         git add .
         git commit -m "Feed update."
-        git push origin master
+        git push origin main
