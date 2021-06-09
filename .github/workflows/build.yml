@@ -19,7 +19,6 @@ on:
   schedule:
     - cron:  '0 9 * * *'
 
-
 jobs:
   build:
     strategy:
@@ -66,6 +65,7 @@ jobs:
     - name: Commit & push
       run: |
         cd _feeds
+        ls
         git remote set-url --push origin https://dend:{{ secrets.FEEDS_PAT }}@github.com/dendeli-work/feeds.git
         git config --global user.name 'Den Delimarsky'
         git config --global user.email '1389609+dend@users.noreply.github.com'
