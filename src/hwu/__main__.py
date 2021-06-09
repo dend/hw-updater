@@ -1,5 +1,6 @@
 import requests
 import lxml.etree as ET
+from datetime import datetime
 
 CH9_FEED_URL = "https://channel9.msdn.com/Shows/Hello-World/feed/mp3"
 CURRENT_FEED_URL = "https://raw.githubusercontent.com/dendeli-work/feeds/main/hello-world/feed.xml"
@@ -54,6 +55,15 @@ for item in candidate_items:
 		audio_nodes = media_group.findall('.//media:content[@type="audio/mp3"]', namespaces)
 		if audio_nodes:
 			target_node.append(item)
+
+items = current_feed.findall('.//item')
+sorted_items = sorted(items, reverse=True, key=lambda x: datetime.strptime(x.find('pubDate').text, "%a, %d %b %Y %H:%M:%S %Z"))
+
+for item in items:
+	target_node.remove(item)
+
+for item in sorted_items:
+	target_node.append(item)
 
 tree = ET.ElementTree(current_feed)
 tree.write('feed.xml')
