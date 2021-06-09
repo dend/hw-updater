@@ -64,7 +64,7 @@ jobs:
         ls src
         echo '====='
         ls _feeds/hello-world
-        cp src/feed.xml _feeds/hello-world/feed.xml
+        cp -v src/feed.xml _feeds/hello-world/feed.xml
 
     - name: Commit & push
       run: |
@@ -72,7 +72,7 @@ jobs:
         ls
         git status
         echo '====='
-        git add .
+        git add -A
         echo '====='
         git config --global user.name 'Den Delimarsky'
         git config --global user.email '1389609+dend@users.noreply.github.com'
