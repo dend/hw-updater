@@ -67,3 +67,4 @@ for item in sorted_items:
 
 tree = ET.ElementTree(current_feed)
 tree.write('feed.xml')
+print('Final feed is produced.')
