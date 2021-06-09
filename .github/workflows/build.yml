@@ -60,7 +60,11 @@ jobs:
         path: '_feeds'
 
     - name: Copy and paste the new feed
-      run: \cp -r src/feed.xml _feeds/hello-world/feed.xml
+      run: |
+        ls src
+        echo '====='
+        ls _feeds/hello-world
+        \cp -r src/feed.xml _feeds/hello-world/feed.xml
 
     - name: Commit & push
       run: |
