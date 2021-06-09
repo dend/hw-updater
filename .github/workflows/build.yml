@@ -64,7 +64,7 @@ jobs:
         ls src
         echo '====='
         ls _feeds/hello-world
-        \cp -r src/feed.xml _feeds/hello-world/feed.xml
+        cp src/feed.xml _feeds/hello-world/feed.xml
 
     - name: Commit & push
       run: |
