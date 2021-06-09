@@ -72,7 +72,7 @@ jobs:
         ls
         git status
         echo '====='
-        git add -A
+        git add -A -v
         echo '====='
         git config --global user.name 'Den Delimarsky'
         git config --global user.email '1389609+dend@users.noreply.github.com'
