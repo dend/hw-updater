@@ -60,7 +60,7 @@ jobs:
         path: '_feeds'
 
     - name: Copy and paste the new feed
-      run: yes | cp -r src/feed.xml _feeds/hello-world/feed.xml
+      run: \cp -r src/feed.xml _feeds/hello-world/feed.xml
 
     - name: Commit & push
       run: |
