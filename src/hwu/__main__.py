@@ -1,5 +1,5 @@
 import requests
-import xml.etree.ElementTree as ET
+import lxml.etree as ET
 
 CH9_FEED_URL = "https://channel9.msdn.com/Shows/Hello-World/feed/mp3"
 CURRENT_FEED_URL = "https://raw.githubusercontent.com/dendeli-work/feeds/main/hello-world/feed.xml"
@@ -17,12 +17,14 @@ namespaces = {'media': 'http://search.yahoo.com/mrss/',
 
 for prefix, uri in namespaces.items():
     ET.register_namespace(prefix, uri)
-    
+
+parser = ET.XMLParser(strip_cdata=False)
+
 raw_ch9_feed = requests.get(CH9_FEED_URL).text
-ch9_feed = ET.fromstring(raw_ch9_feed)
+ch9_feed = ET.XML(raw_ch9_feed.encode('utf-8'), parser=parser)
 
 raw_current_feed = requests.get(CURRENT_FEED_URL).text
-current_feed = ET.fromstring(raw_current_feed)
+current_feed = ET.XML(raw_current_feed.encode('utf-8'), parser=parser)
 
 target_node = current_feed.find('channel', namespaces)
 
