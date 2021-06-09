@@ -77,6 +77,6 @@ jobs:
         git config --global user.name 'Den Delimarsky'
         git config --global user.email '1389609+dend@users.noreply.github.com'
         echo '====='
-        git remote set-url --push origin https://dend:{{ secrets.FEEDS_PAT }}@github.com/dendeli-work/feeds.git
+        git remote set-url --push origin https://dend:${{ secrets.FEEDS_PAT }}@github.com/dendeli-work/feeds.git
         git commit -m "Feed update."
         git push origin main
